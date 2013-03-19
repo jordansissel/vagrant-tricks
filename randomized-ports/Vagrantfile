@@ -1,0 +1,12 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant::Config.run do |config|
+  config.vm.box = "ubuntu-12.10-amd64"
+  config.vm.box_url = "https://vagrant-jls.objects.dreamhost.com/ubuntu-12.10-amd64.box"
+
+  # Randomly select host ports to forward to the guest
+  config.vm.forward_port 5601, rand(30000) + 1024
+  config.vm.forward_port 9200, rand(30000) + 1024
+  config.vm.forward_port 5001, rand(30000) + 1024
+end
